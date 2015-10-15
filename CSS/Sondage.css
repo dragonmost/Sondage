@@ -1,0 +1,22 @@
+body
+{
+    Background-image: url("../img/wall.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+#signin
+{
+    color: #ffffff;
+    background-color: rgba(192, 192, 192, 0.5);
+    border-radius: 25px;
+    position:absolute;
+    height:80%;
+    bottom:10%;
+    width:80%;
+    margin-left : 10%;
+    /*
+    background-color: silver;
+    margin:auto;
+    width:25%;*/
+}
