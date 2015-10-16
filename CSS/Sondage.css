@@ -13,6 +13,33 @@ body
     height: 100%;
 }
 
+input[type="text"]
+{
+    color: black;
+}
+
+.CreateAccount
+{
+    color: white;
+    text-align: center;
+}
+
+.CreateAccount:hover
+{
+    color: lightgrey;
+}
+
+.CreateAccount:visited
+{
+    color: white;
+}
+
+#SurveyTitle
+{
+    position: relative;
+    text-align: center;
+}
+
 .form-signin
 {
     color: #ffffff;
@@ -32,6 +59,7 @@ body
     //margin-top: 10%;
     border-radius: 13px;
     min-height: 400px;
+    display: table;
 }
 
 .container-fluid
@@ -42,6 +70,13 @@ body
 .container-fluid > .sidebar-right {
     float: right;
     width: 220px;
+}
+
+.blog-sidebar
+{
+    position: relative;
+    left:45%;
+    margin-top: -30%;
 }
 
 
