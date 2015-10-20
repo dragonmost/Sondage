@@ -13,9 +13,14 @@ body
     height: 100%;
 }
 
-input[type="text"]
+input[type="text"], input[type=email], input[type=password]
 {
     color: black;
+}
+
+ul
+{
+    list-style-type: none;
 }
 
 .CreateAccount
@@ -48,6 +53,21 @@ input[type="text"]
     width: 40%;
     margin-top: 10%;
     border-radius: 13px;
+}
+
+.form-Account-Management
+{
+    color: #ffffff;
+    background-color: rgba(192, 192, 192, 0.5);
+    margin: auto;
+    width: 90%;
+    margin-top: 10%;
+    border-radius: 13px;
+}
+
+.Account-Management, .Account-Management:hover, .Account-Management:visited
+{
+    color: white;
 }
 
 .wrapper

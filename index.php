@@ -37,7 +37,6 @@ include('PHP/Connection.php');
                         <input type="checkbox" value="remember-me"> Remember me
                     </label>
                 </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
             </div>
         </div>
     </form>
@@ -45,7 +44,21 @@ include('PHP/Connection.php');
 </body>
 </html>
 
+<!--
 
+<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span>
+
+-->
 
 
 
