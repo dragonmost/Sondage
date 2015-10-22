@@ -1,6 +1,7 @@
+<script src="../js/sondage.js"></script>
 <?php
 
-CreateAccount("tbk@kek.kek", "ish", 1);
+
 
 
 function CreateAccount($email, $pw, $isAdmin)
@@ -39,5 +40,90 @@ function CreateAccount($email, $pw, $isAdmin)
     $pdo = null;
 }
 
+function DisplayAccount()
+{
+    try {
+        $pdo = new PDO('sqlite:bd.Account');
+    }
+    catch (PDOException $e) {
+        echo 'Connection failed: ' . $e->getMessage();
+    }
+
+
+    try {
+        $req = $pdo->prepare("SELECT * FROM donnees");
+        $req->execute();
+
+        $values_from_db = $req->fetchAll();
+        //print_r($values_from_db);
+
+        foreach ($values_from_db as $single_data)
+        {
+            //echo '<p>' . $single_data['AccountEmail'] . '</p>';
+            //echo '<p>' . $single_data['AccountPW'] . '</p>';
+            //echo '<script> displayLstAccount('.json_encode($single_data['AccountEmail']). ','. json_encode($single_data['AccountisAdmin']) . ')</script>';
+            appendAccount($single_data['AccountEmail'], $single_data['AccountisAdmin']);
+        }
+
+
+        /*while ($result = $req->fetchAll())(PDO::FETCH_NUM)) {
+            foreach ($result as $key => $value) {
+                echo "$key => $value <br>";
+                echo '<script> displayLstAccount('.$value.')</script>';
+            }
+        }*/
+    }
+    catch (PDOException $ex) {
+        echo "Connection failed: " . $ex->getMessage();
+    }
+
+
+    //$index = JSON_ENCODE($table);
+}
+
+function appendAccount($name, $isAdmin)
+{
+    $doc = new DOMDocument();
+    $doc->loadHTML("AdminHome.php");
+    $doc->getElementById('lstAccount');
+    $liste = $doc->createElement("li");
+
+    $divNorm = $doc->createElement("div");
+    $divNorm->setAttribute("id", "normal");
+    $divMod = $doc->createElement("div");
+    $divMod->setAttribute("id", "modify");
+
+    //mon div normal
+    $lblNorm = $doc->createElement("label");
+    $lblNorm->appendChild($doc->createTextNode($name));
+    $pencil = $doc->createElement("a");
+    $pencilSpan = $doc->createElement("span");
+    $pencilSpan->setAttribute("class", "glyphicon glyphicon-pencil");
+    $pencilSpan->setAttribute("aria-hidden", "true");
+    $pencil->appendChild($pencilSpan);
+    $pencil->setAttribute("class", "Account-Management");
+    $pencil->setAttribute("href", "#");
+    $trash = $doc->createElement("a");
+    $trashSpan = $doc->createElement("span");
+    $trashSpan->setAttribute("class", "glyphicon glyphicon-trash");
+    $trashSpan->setAttribute("aria-hidden", "true");
+    $trash->appendChild($trashSpan);
+    $trash->setAttribute("class", "Account-Management");
+    $trash->setAttribute("href", "#");
+
+    //mon div de modifier
+    $input = $doc->createElement("input");
+    $input->setAttribute("type", "email");
+    $input->setAttribute("placeholder", $name);
+
+
+    $divNorm->appendChild($lblNorm);
+    $divNorm->appendChild($pencil);
+    $divNorm->appendChild($trash);
+    $divMod->appendChild($input);
+    $liste->appendChild($divNorm);
+    $liste->appendChild($divMod);
+    $doc->appendChild($liste);
+}
 
 ?>

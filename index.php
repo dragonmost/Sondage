@@ -5,6 +5,7 @@ session_start();
 
 include('PHP/Connection.php');
 
+CreateAccount("tbk@kek.kek", "ish", 1);
 ?>
 
 
@@ -37,6 +38,7 @@ include('PHP/Connection.php');
                         <input type="checkbox" value="remember-me"> Remember me
                     </label>
                 </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
             </div>
         </div>
     </form>

@@ -1,37 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: 1229753
- * Date: 20/10/2015
- * Time: 10:06
- */
-
-
-try {
-    $pdo = new PDO('sqlite:bd.Account');
-} catch (PDOException $e) {
-    echo 'Connection failed: ' . $e->getMessage();
-}
-
-try {
-    $req = $pdo->prepare("SELECT * FROM Donnees");
-    $req->execute();
-
-    while ($result = $req->fetch(PDO::FETCH_NUM)) {
-        foreach ($result as $key => $value) {
-            echo "$key => $value <br>";
-        }
-    }
-} catch (PDOException $ex) {
-    echo "Connection failed: " . $ex->getMessage();
-}
-
-$index = JSON_ENCODE($table);
-
-
-?>
-
-
 <html>
 <head>
     <meta charset="UTF-8">
@@ -53,7 +19,7 @@ $index = JSON_ENCODE($table);
 
             <h2 class="form-signin-heading">Accounts</h2>
 
-            <ul>
+            <ul id="lstAccount">
                 <li id="Account_1">
                     <div id="normal">
                         <label>Sam@kek.lol</label>
@@ -86,3 +52,17 @@ $index = JSON_ENCODE($table);
 </body>
 </html>
 
+<?php
+/**
+ * Created by PhpStorm.
+ * User: 1229753
+ * Date: 20/10/2015
+ * Time: 10:06
+ */
+
+include("Connection.php");
+
+DisplayAccount();
+
+
+?>
