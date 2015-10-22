@@ -1,8 +1,45 @@
 <script src="../js/sondage.js"></script>
 <?php
 
+Connect($_POST["email"], $_POST["pw"]);
+
+function Connect($email, $pw)
+{
+    try {
+        $pdo = new PDO('sqlite:bd.Account');
+    } catch (PDOException $e) {
+        echo 'Connection failed: ' . $e->getMessage();
+    }
+
+    try {
+        $sel = "SELECT * FROM donnees WHERE AccountEmail= :Email AND AccountPW= :PW AND AccountisAdmin= 1";
+        $req = $pdo->prepare($sel);
+        $req->bindValue(":Email", $email);
+        $req->bindValue(":PW", md5($pw));
+        $req->execute();
+
+        $val = $req->fetch(PDO::FETCH_NUM);
+
+        if($val != null)
+            header("location:AdminHome.html");
+        else
+        {
+            $sel = "SELECT * FROM donnees WHERE AccountEmail= :Email AND AccountPW= :PW AND AccountisAdmin= 0";
+            $req = $pdo->prepare($sel);
+            $req->bindValue(":Email", $email);
+            $req->bindValue(":PW", md5($pw));
+            $req->execute();
+
+            if($val) {
+                header("location:SurveyHome.html");
+            }
+        }
 
 
+    } catch (PDOException $ex) {
+        echo "Connection failed: " . $ex->getMessage();
+    }
+}
 
 function CreateAccount($email, $pw, $isAdmin)
 {
@@ -40,12 +77,11 @@ function CreateAccount($email, $pw, $isAdmin)
     $pdo = null;
 }
 
-function DisplayAccount()
+function AdminHome()
 {
     try {
         $pdo = new PDO('sqlite:bd.Account');
-    }
-    catch (PDOException $e) {
+    } catch (PDOException $e) {
         echo 'Connection failed: ' . $e->getMessage();
     }
 
@@ -57,8 +93,7 @@ function DisplayAccount()
         $values_from_db = $req->fetchAll();
         //print_r($values_from_db);
 
-        foreach ($values_from_db as $single_data)
-        {
+        foreach ($values_from_db as $single_data) {
             //echo '<p>' . $single_data['AccountEmail'] . '</p>';
             //echo '<p>' . $single_data['AccountPW'] . '</p>';
             //echo '<script> displayLstAccount('.json_encode($single_data['AccountEmail']). ','. json_encode($single_data['AccountisAdmin']) . ')</script>';
@@ -72,8 +107,7 @@ function DisplayAccount()
                 echo '<script> displayLstAccount('.$value.')</script>';
             }
         }*/
-    }
-    catch (PDOException $ex) {
+    } catch (PDOException $ex) {
         echo "Connection failed: " . $ex->getMessage();
     }
 
@@ -84,7 +118,7 @@ function DisplayAccount()
 function appendAccount($name, $isAdmin)
 {
     $doc = new DOMDocument();
-    $doc->loadHTML("AdminHome.php");
+    $doc->loadHTMLFile("AdminHome.html");
     $doc->getElementById('lstAccount');
     $liste = $doc->createElement("li");
 
@@ -124,6 +158,8 @@ function appendAccount($name, $isAdmin)
     $liste->appendChild($divNorm);
     $liste->appendChild($divMod);
     $doc->appendChild($liste);
+
+    echo $doc->saveHTML();
 }
 
 ?>
