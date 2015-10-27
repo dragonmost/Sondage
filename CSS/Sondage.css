@@ -70,6 +70,27 @@ ul
     color: white;
 }
 
+.SondageCreateHome,.SondageAddQuestion
+{
+    color: #ffffff;
+    background-color: rgba(192, 192, 192, 0.5);
+    margin: auto;
+    width: 40%;
+    margin-top: 10%;
+    border-radius: 13px;
+}
+
+.WhiteHeader
+{
+    color: white;
+    font-size: xx-large;
+}
+
+.BlackText
+{
+    color: black;
+}
+
 .wrapper
 {
     color: #ffffff;

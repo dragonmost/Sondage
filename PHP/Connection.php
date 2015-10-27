@@ -12,7 +12,7 @@ function Connect($email, $pw)
     }
 
     try {
-        $sel = "SELECT * FROM donnees WHERE AccountEmail= :Email AND AccountPW= :PW";
+        $sel = "SELECT * FROM Account WHERE AccountEmail= :Email AND AccountPW= :PW";
         $req = $pdo->prepare($sel);
         $req->bindValue(":Email", $email);
         $req->bindValue(":PW", ($pw));
@@ -21,12 +21,13 @@ function Connect($email, $pw)
         $val = $req->fetchAll(PDO::FETCH_NUM);
 
         //print_r($val[0][2]);
+        setcookie("email", $email, time() + (86400 * 30), "/");
+        setcookie("password", $pw, time() + (86400 * 30), "/");
 
         if($val[0][2] == 1)
             AdminHome();
         else if ($val[0][2] == 0)
             ClientHome();
-
 
     } catch (PDOException $ex) {
         echo "Connection failed: " . $ex->getMessage();
@@ -149,7 +150,7 @@ function appendAccount($doc, $name, $isAdmin, $i)
 function ClientHome()
 {
     $doc = new DOMDocument();
-    $doc->loadHTMLFile("../html/ClientHome.html");
+    $doc->loadHTMLFile("../html/CreateSondage.html");
 
     echo $doc->SaveHTML();
 }

@@ -5,3 +5,8 @@ function displayLstAccount(name, isAdmin)
 {
 
 }
+
+function Cookie(account)
+{
+
+}
