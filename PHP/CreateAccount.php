@@ -8,8 +8,11 @@
 
 //CreateAccount($_POST["email"], $_POST["pw"], $_POST["check"]);
 
-print("1");
-print($_POST["check"]);
+//print("1");
+//print($_POST["check"]);
+//print($_POST["check"]);
+
+CreateAccount($_POST["email"], $_POST["pw"], $_POST["check"]);
 
 function CreateAccount($email, $pw, $isAdmin)
 {
@@ -33,7 +36,10 @@ function CreateAccount($email, $pw, $isAdmin)
         $requete = $pdo->prepare($insert);
         $requete->bindValue(':email', $email);
         $requete->bindValue(':pw', md5($pw));
-        $requete->bindValue(':isAdmin', $isAdmin);
+        if($isAdmin == "on")
+            $requete->bindValue(':isAdmin', 1);
+        else
+            $requete->bindValue(':isAdmin', 0);
 
         // Execute la requête
         $requete->execute();

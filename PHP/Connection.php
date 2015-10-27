@@ -62,6 +62,7 @@ function AdminHome()
         }
 
         echo $doc->saveHTML();
+        $pdo = null;
 
         /*while ($result = $req->fetchAll())(PDO::FETCH_NUM)) {
             foreach ($result as $key => $value) {
@@ -110,7 +111,7 @@ function appendAccount($doc, $name, $isAdmin, $i)
     $input = $doc->createElement("input");
     $input->setAttribute("type", "email");
     $input->setAttribute("placeholder", $name);
-    $lblMod = $doc->createElement("labal");
+    $lblMod = $doc->createElement("label");
     $lblMod->appendChild($doc->createTextNode("isAdmin"));
     $checkbox = $doc->createElement("input");
     $checkbox->setAttribute("type", "checkbox");
@@ -148,7 +149,7 @@ function appendAccount($doc, $name, $isAdmin, $i)
 function ClientHome()
 {
     $doc = new DOMDocument();
-    $doc->loadHTMLFile("../html/main.html");
+    $doc->loadHTMLFile("../html/ClientHome.html");
 
     echo $doc->SaveHTML();
 }
