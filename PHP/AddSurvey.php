@@ -27,7 +27,7 @@ function AddSurvey($data)
     $pdo = null;
 
     $doc = new DOMDocument();
-    $doc->loadHTMLFile("../html/CompleteSurvey.html");
+    $doc->loadHTMLFile("CompleteSurvey.php");
     $Questions = $doc->getElementById('Question');
     $input = $doc->createElement("input");
     $input->setAttribute("value",$pw);
@@ -36,15 +36,44 @@ function AddSurvey($data)
     $button = $doc->getElementById("button");
     $button->appendChild($doc->createTextNode("Complete Survey"));
     $button->setAttribute("type", "submit");
+    $button->setAttribute("name", "pw");
     $Questions->appendChild($input);
     echo $doc->saveHTML();
 
     for($ii = 1;$ii<= count($data)-(count($data)/2);$ii++)
     {
-        $Question = $_POST['Question'.$ii];
-        $Type = $_POST['Type'.$ii];
+        $Question = $data['Question'.$ii];
+        $Type = $data['Type'.$ii];
         AddQuestions($Question,$Type);
     }
+}
+
+function AddQuestions($Question,$Type)//ajoute les questions au sondage
+{
+    try {
+        $pdo = new PDO('sqlite:bd.Account');
+    } catch (PDOException $e) {
+        echo 'Connection failed: ' . $e->getMessage();
+    }
+
+    $str = "SELECT SondageID FROM Sondage ORDER BY SondageID DESC";
+    $Select = $pdo->prepare($str);
+    $Select->execute();
+
+    $value = $Select->fetchAll();
+
+    $insert = "INSERT INTO Question(QuestQuestion, QuestReponse, QuestType, QuestSondageID) VALUES(:QuestQuestion,:QuestReponse,:QuestType,:QuestSondageID)";
+    $requete = $pdo->prepare($insert);
+    $requete->bindValue(':QuestQuestion',$Question);
+    $requete->bindValue(':QuestReponse','' );
+    $requete->bindValue(':QuestType',$Type);
+    $requete->bindValue(':QuestSondageID',$value[0][0]);
+
+
+    // Execute la requête
+    $requete->execute();
+
+    $pdo = null;
 }
 
 ?>

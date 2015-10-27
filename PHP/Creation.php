@@ -51,7 +51,7 @@
 </div>
 
 <div class="container-fluid" style="min-height: 100%;">
-    <form class="SondageAddQuestion" action="../PHP/AddSurvey.php" method="post">
+    <form class="SondageAddQuestion" action="AddSurvey.php" method="post">
         <div>
             <div class="panel-body">
                 <h2 class="WhiteHeader">Survey Creation</h2>

@@ -51,13 +51,10 @@ function AdminHome()
         //print_r($values_from_db);
 
         $doc = new DOMDocument();
-        $doc->loadHTMLFile("../html/AdminHome.html");
+        $doc->loadHTMLFile("AdminHome.php");
 
         $i=1;
         foreach ($values_from_db as $single_data) {
-            //echo '<p>' . $single_data['AccountEmail'] . '</p>';
-            //echo '<p>' . $single_data['AccountPW'] . '</p>';
-            //echo '<script> displayLstAccount('.json_encode($single_data['AccountEmail']). ','. json_encode($single_data['AccountisAdmin']) . ')</script>';
             appendAccount($doc, $single_data['AccountEmail'], $single_data['AccountisAdmin'], $i);
             $i = $i +1;
         }
@@ -65,12 +62,6 @@ function AdminHome()
         echo $doc->saveHTML();
         $pdo = null;
 
-        /*while ($result = $req->fetchAll())(PDO::FETCH_NUM)) {
-            foreach ($result as $key => $value) {
-                echo "$key => $value <br>";
-                echo '<script> displayLstAccount('.$value.')</script>';
-            }
-        }*/
     } catch (PDOException $ex) {
         echo "Connection failed: " . $ex->getMessage();
     }
@@ -150,7 +141,7 @@ function appendAccount($doc, $name, $isAdmin, $i)
 function ClientHome()
 {
     $doc = new DOMDocument();
-    $doc->loadHTMLFile("../html/CreateSondage.html");
+    $doc->loadHTMLFile("ClientHome.php");
 
     echo $doc->SaveHTML();
 }

@@ -11,7 +11,7 @@ CreateSurvey($_POST["nbQ"]);
 function CreateSurvey($nbQ)
 {
     $doc = new DOMDocument();
-    $doc->loadHTMLFile("../html/AddQuestion.html");
+    $doc->loadHTMLFile("Creation.php");
 
     for($i = 1; $i <= $nbQ; $i++)
     {
@@ -48,10 +48,10 @@ function CreateSurvey($nbQ)
         $liste->appendChild($div);
 
         $ele->appendChild($liste);
-
-        $button = $doc->getElementById("button");
-        $button->appendChild($doc->createTextNode("Complete Survey"));
     }
+
+    $button = $doc->getElementById("button");
+    $button->appendChild($doc->createTextNode("Complete Survey"));
 
     echo $doc->SaveHTML();
 }

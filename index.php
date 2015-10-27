@@ -1,15 +1,17 @@
+<?php
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="CSS/Sondage.css" />
-    <link rel="stylesheet" href="bootstrap-3.3.5-dist\css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.css">
     <!--<link rel="stylesheet" href="bootstrap-3.3.5-dist\css/bootstrap.min.css">-->
-    <link rel="stylesheet" href="bootstrap-3.3.5-dist\css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
     <!--<link rel="stylesheet" href="bootstrap-3.3.5-dist\css/bootstrap-theme.css">-->
-    <?php include 'index.php';?>
 
-    <title>%title%</title>
+    <title>Baker Survey</title>
 </head>
 <body>
     <div class="container">

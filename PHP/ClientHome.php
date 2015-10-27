@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +55,7 @@
 </div>
 
 <div class="container-fluid" style="min-height: 100%;">
-    <form class="SondageCreateHome" action="../PHP/CreateSurvey.php" method="post">
+    <form class="SondageCreateHome" action="CreateSurvey.php" method="post">
         <div>
             <div class="panel-body">
                 <h2 class="WhiteHeader">Survey Creation</h2>
