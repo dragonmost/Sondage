@@ -6,11 +6,6 @@
  * Time: 16:31
  */
 
-//CreateAccount($_POST["email"], $_POST["pw"], $_POST["check"]);
-
-//print("1");
-//print($_POST["check"]);
-//print($_POST["check"]);
 session_start();
 CreateAccount($_POST["email"], $_POST["pw"], $_POST["check"]);
 
@@ -32,7 +27,7 @@ function CreateAccount($email, $pw, $isAdmin)
 						AccountPW TEXT NOT NULL,
 						AccountisAdmin INTEGER NOT NULL)");
 
-        $insert = "INSERT INTO donnees (AccountEmail, AccountPW, AccountisAdmin) VALUES (:email, :pw, :isAdmin)";
+        $insert = "INSERT INTO Account (AccountEmail, AccountPW, AccountisAdmin) VALUES (:email, :pw, :isAdmin)";
         $requete = $pdo->prepare($insert);
         $requete->bindValue(':email', $email);
         $requete->bindValue(':pw', md5($pw));
@@ -44,7 +39,6 @@ function CreateAccount($email, $pw, $isAdmin)
         // Execute la requête
         $requete->execute();
 
-        echo "Insertion réussie" . $pdo->lastInsertId();
     } catch (PDOException $e) {
         echo 'Insertion failed: ' . $e->getMessage();
     }

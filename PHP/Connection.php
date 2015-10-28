@@ -15,12 +15,12 @@ function Connect($email, $pw)
         $sel = "SELECT * FROM Account WHERE AccountEmail= :Email AND AccountPW= :PW";
         $req = $pdo->prepare($sel);
         $req->bindValue(":Email", $email);
-        $req->bindValue(":PW", ($pw));
+        $req->bindValue(":PW", md5($pw));
         $req->execute();
 
         $val = $req->fetchAll(PDO::FETCH_NUM);
+        $pdo = null;
 
-        //print_r($val[0][2]);
         $_SESSION["email"] = $email;
 
         if($val[0][2] == 1)
@@ -40,7 +40,6 @@ function AdminHome()
     } catch (PDOException $e) {
         echo 'Connection failed: ' . $e->getMessage();
     }
-
 
     try {
         $req = $pdo->prepare("SELECT * FROM Account");
