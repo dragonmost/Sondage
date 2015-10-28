@@ -91,6 +91,18 @@ ul
     color: black;
 }
 
+.WhiteText
+{
+    color: White;
+}
+
+.Developpement
+{
+    color: black;
+    width: 90%;
+    height: 70px;
+}
+
 .wrapper
 {
     color: #ffffff;

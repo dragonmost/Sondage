@@ -5,7 +5,7 @@
  * Date: 27/10/2015
  * Time: 10:24
  */
-
+session_start();
 CreateSurvey($_POST["nbQ"]);
 
 function CreateSurvey($nbQ)
@@ -31,13 +31,15 @@ function CreateSurvey($nbQ)
         $lab->appendChild($doc->createTextNode("Question " . $i));
         $input->setAttribute("name", "input" . $i);
         $input->setAttribute("class", "BlackText");
-        $radio1->setAttribute("app" . $i, "");
-        $radio1->setAttribute("checked", "");
+        $radio1->setAttribute("id", "app" . $i);
+        $radio1->setAttribute("checked", "checked");
         $radio1->setAttribute("name", "r" .$i);
-        $radio2->setAttribute("dev" . $i, "");
+        $radio1->setAttribute("value", "1");
+        $radio2->setAttribute("id", "dev" . $i);
         $radio2->setAttribute("name", "r" .$i);
+        $radio2->setAttribute("value", "0");
 
-        $labType->appendChild($doc->createTextNode(("Appreciation: ")));
+        $labType->appendChild($doc->createTextNode("Appreciation: "));
         $labType->appendChild($radio1);
         $labType->appendChild($doc->createTextNode(" Developpement: "));
         $labType->appendChild($radio2);

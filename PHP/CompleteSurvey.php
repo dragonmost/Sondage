@@ -5,10 +5,26 @@
  * Date: 27/10/2015
  * Time: 13:50
  */
-
+session_start();
 CompleteSurvey($_POST["pw"]);
 
 function CompleteSurvey($pw)
+{
+    $doc = new DOMDocument();
+    $doc->loadHTMLFile("../html/CompleteSurvey.html");
+    $Questions = $doc->getElementById('Question');
+    $input = $doc->createElement("input");
+    $input->setAttribute("class", "BlackText");
+    $button = $doc->getElementById("button");
+    //$button->appendChild($doc->createTextNode("Complete Survey"));
+    $button->setAttribute("type", "submit");
+    $Questions->appendChild($input);
+    echo $doc->saveHTML();
+
+
+}
+
+function OpenSurvey()
 {
     try {
         $pdo = new PDO('sqlite:bd.Account');
@@ -25,19 +41,6 @@ function CompleteSurvey($pw)
     $requete->execute();
 
     $pdo = null;
-
-    $doc = new DOMDocument();
-    $doc->loadHTMLFile("../html/CompleteSurvey.html");
-    $Questions = $doc->getElementById('Question');
-    $input = $doc->createElement("input");
-    $input->setAttribute("value",$pw);
-    $input->setAttribute("class", "BlackText");
-    $input->setAttribute("ReadOnly","");
-    $button = $doc->getElementById("button");
-    $button->appendChild($doc->createTextNode("Complete Survey"));
-    $button->setAttribute("type", "submit");
-    $Questions->appendChild($input);
-    echo $doc->saveHTML();
 }
 
 ?>

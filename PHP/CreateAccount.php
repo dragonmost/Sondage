@@ -11,7 +11,7 @@
 //print("1");
 //print($_POST["check"]);
 //print($_POST["check"]);
-
+session_start();
 CreateAccount($_POST["email"], $_POST["pw"], $_POST["check"]);
 
 function CreateAccount($email, $pw, $isAdmin)
@@ -27,7 +27,7 @@ function CreateAccount($email, $pw, $isAdmin)
      * Création des tables                       *
      **************************************/
     try {
-        $pdo->exec("CREATE TABLE IF NOT EXISTS donnees (
+        $pdo->exec("CREATE TABLE IF NOT EXISTS Account (
 						AccountEmail TEXT PRIMARY KEY NOT NULL UNIQUE,
 						AccountPW TEXT NOT NULL,
 						AccountisAdmin INTEGER NOT NULL)");

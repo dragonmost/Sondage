@@ -1,6 +1,6 @@
 <script src="../js/sondage.js"></script>
 <?php
-
+session_start();
 Connect($_POST["email"], $_POST["pw"]);
 
 function Connect($email, $pw)
@@ -21,8 +21,7 @@ function Connect($email, $pw)
         $val = $req->fetchAll(PDO::FETCH_NUM);
 
         //print_r($val[0][2]);
-        setcookie("email", $email, time() + (86400 * 30), "/");
-        setcookie("password", $pw, time() + (86400 * 30), "/");
+        $_SESSION["email"] = $email;
 
         if($val[0][2] == 1)
             AdminHome();
@@ -44,7 +43,7 @@ function AdminHome()
 
 
     try {
-        $req = $pdo->prepare("SELECT * FROM donnees");
+        $req = $pdo->prepare("SELECT * FROM Account");
         $req->execute();
 
         $values_from_db = $req->fetchAll();
