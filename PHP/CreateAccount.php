@@ -6,45 +6,24 @@
  * Time: 16:31
  */
 
-session_start();
-CreateAccount($_POST["email"], $_POST["pw"], $_POST["check"]);
+include "function.php";
 
-function CreateAccount($email, $pw, $isAdmin)
+session_start();
+if(!isset($_SESSION))
+    header("location: ../index.php");
+
+if(isset($_POST["Create"])){
+    if (isset($_POST["check"]))
+        CreateAccount($_POST["email"], $_POST["pw"], $_POST["check"]);
+    else
+        CreateAccount($_POST["email"], $_POST["pw"], 0);
+}
+elseif(isset($_POST["Modify"]))
 {
 
-// Connexion
-    try {
-        $pdo = new PDO('sqlite:bd.Account');
-    } catch (PDOException $e) {
-        echo 'Connection failed: ' . $e->getMessage();
-    }
-    /**************************************
-     * Création des tables                       *
-     **************************************/
-    try {
-        $pdo->exec("CREATE TABLE IF NOT EXISTS Account (
-						AccountEmail TEXT PRIMARY KEY NOT NULL UNIQUE,
-						AccountPW TEXT NOT NULL,
-						AccountisAdmin INTEGER NOT NULL)");
-
-        $insert = "INSERT INTO Account (AccountEmail, AccountPW, AccountisAdmin) VALUES (:email, :pw, :isAdmin)";
-        $requete = $pdo->prepare($insert);
-        $requete->bindValue(':email', $email);
-        $requete->bindValue(':pw', md5($pw));
-        if($isAdmin == "on")
-            $requete->bindValue(':isAdmin', 1);
-        else
-            $requete->bindValue(':isAdmin', 0);
-
-        // Execute la requête
-        $requete->execute();
-
-    } catch (PDOException $e) {
-        echo 'Insertion failed: ' . $e->getMessage();
-    }
-
-// ferme la requête
-    $pdo = null;
 }
+elseif(isset($_POST["Delete"]))
+{
 
+}
 ?>

@@ -1,4 +1,5 @@
 <?php
+print_r(session_status());
     session_start();
 ?>
 
@@ -30,7 +31,7 @@
                         </label>
                     </div>
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                    <a class="CreateAccount" href="#">Create account</a>
+                    <!--<a class="CreateAccount" href="#">Create account</a>-->
                 </div>
             </div>
         </form>

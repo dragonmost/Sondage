@@ -1,5 +1,7 @@
 <?php
 session_start();
+if(!isset($_SESSION))
+    header("location: ../index.php");
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +49,7 @@ session_start();
                             <li><a href="#">Display</a></li>
                         </ul>
                     </li>
-                    <li><a href="#signout">Sign out</a></li>
+                    <li><a href="SignOut.php">Sign out</a></li>
                 </ul>
             </div>
         </div>
