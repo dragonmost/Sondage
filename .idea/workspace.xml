@@ -2,20 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="912aac68-5b11-4d67-a2f9-529daa29f579" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PHP/DeleteAccount.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PHP/SignOut.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PHP/function.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/PHP/ModifyAccount.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PHP/bd.Account" afterPath="$PROJECT_DIR$/PHP/bd.Account" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PHP/AddSurvey.php" afterPath="$PROJECT_DIR$/PHP/AddSurvey.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JS/Account.js" afterPath="$PROJECT_DIR$/JS/Account.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PHP/AdminHome.php" afterPath="$PROJECT_DIR$/PHP/AdminHome.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PHP/ClientHome.php" afterPath="$PROJECT_DIR$/PHP/ClientHome.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PHP/CompleteSurvey.php" afterPath="$PROJECT_DIR$/PHP/CompleteSurvey.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PHP/Connection.php" afterPath="$PROJECT_DIR$/PHP/Connection.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PHP/CreateAccount.php" afterPath="$PROJECT_DIR$/PHP/CreateAccount.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PHP/CreateSurvey.php" afterPath="$PROJECT_DIR$/PHP/CreateSurvey.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PHP/Creation.php" afterPath="$PROJECT_DIR$/PHP/Creation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PHP/FilledSurvey.php" afterPath="$PROJECT_DIR$/PHP/FilledSurvey.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PHP/DeleteAccount.php" afterPath="$PROJECT_DIR$/PHP/DeleteAccount.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PHP/function.php" afterPath="$PROJECT_DIR$/PHP/function.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TP1.iws" />
@@ -47,22 +40,63 @@
       <file leaf-file-name="function.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PHP/function.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34056762">
-              <caret line="93" column="55" selection-start-line="93" selection-start-column="55" selection-end-line="93" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.85141903">
+              <caret line="231" column="16" selection-start-line="231" selection-start-column="16" selection-end-line="231" selection-end-column="16" />
               <folding>
                 <element signature="e#6#87#0#PHP" expanded="true" />
-                <marker date="1446057503008" expanded="true" signature="380:447" placeholder="SELECT * FRO..Account..." />
-                <marker date="1446057503008" expanded="true" signature="1128:1149" placeholder="SELECT * FRO..Account..." />
-                <marker date="1446057503008" expanded="true" signature="6042:6090" placeholder="DELETE FROM ..." />
-                <marker date="1446057503008" expanded="true" signature="6048:6090" placeholder="INSERT INTO ..." />
-                <marker date="1446057503008" expanded="true" signature="6585:6663" placeholder="INSERT INTO ..." />
-                <marker date="1446057503008" expanded="true" signature="9807:9874" placeholder="INSERT INTO ..." />
-                <marker date="1446057503008" expanded="true" signature="10390:10457" placeholder="INSERT INTO ..." />
-                <marker date="1446057503008" expanded="true" signature="11964:12017" placeholder="SELECT Sonda..Sondage..." />
-                <marker date="1446057503008" expanded="true" signature="12130:12270" placeholder="INSERT INTO ..." />
-                <marker date="1446057503008" expanded="true" signature="12835:12886" placeholder="SELECT Sonda..Sondage..." />
-                <marker date="1446057503008" expanded="true" signature="13059:13150" placeholder="SELECT Quest..Question..." />
+                <marker date="1446065066108" expanded="true" signature="380:447" placeholder="SELECT * FRO..Account..." />
+                <marker date="1446065066108" expanded="true" signature="1129:1150" placeholder="SELECT * FRO..Account..." />
+                <marker date="1446065066108" expanded="true" signature="5769:5955" placeholder="CREATE TABLE..IF..." />
+                <marker date="1446065066108" expanded="true" signature="5979:6071" placeholder="INSERT INTO ..." />
+                <marker date="1446065066108" expanded="true" signature="6800:6834" placeholder="UPDATE Accou..." />
+                <marker date="1446065066108" expanded="true" signature="6800:6861" placeholder="UPDATE Accou..." />
+                <marker date="1446065066108" expanded="true" signature="6800:6868" placeholder="UPDATE Accou..." />
+                <marker date="1446065066108" expanded="true" signature="6800:6874" placeholder="UPDATE Accou..." />
+                <marker date="1446065066108" expanded="true" signature="6800:6899" placeholder="UPDATE Accou..." />
+                <marker date="1446065066108" expanded="true" signature="7339:7387" placeholder="DELETE FROM ..." />
+                <marker date="1446065066108" expanded="true" signature="7345:7387" placeholder="INSERT INTO ..." />
+                <marker date="1446065066108" expanded="true" signature="7912:7990" placeholder="INSERT INTO ..." />
+                <marker date="1446065066108" expanded="true" signature="11135:11202" placeholder="INSERT INTO ..." />
+                <marker date="1446065066108" expanded="true" signature="11719:11786" placeholder="INSERT INTO ..." />
+                <marker date="1446065066108" expanded="true" signature="13304:13357" placeholder="SELECT Sonda..Sondage..." />
+                <marker date="1446065066108" expanded="true" signature="13470:13610" placeholder="INSERT INTO ..." />
+                <marker date="1446065066108" expanded="true" signature="14180:14231" placeholder="SELECT Sonda..Sondage..." />
+                <marker date="1446065066108" expanded="true" signature="14404:14495" placeholder="SELECT Quest..Question..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ModifyAccount.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PHP/ModifyAccount.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.8461537">
+              <caret line="12" column="54" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
+              <folding>
+                <element signature="e#6#87#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DeleteAccount.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PHP/DeleteAccount.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.230769">
+              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+              <folding>
+                <element signature="e#6#87#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Account.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JS/Account.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -70,8 +104,8 @@
       <file leaf-file-name="AdminHome.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PHP/AdminHome.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.8846154">
-              <caret line="48" column="4" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="4" />
+            <state vertical-scroll-proportion="-15.038462">
+              <caret line="62" column="42" selection-start-line="62" selection-start-column="42" selection-end-line="62" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -80,8 +114,8 @@
       <file leaf-file-name="CreateAccount.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PHP/CreateAccount.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.730769">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state vertical-scroll-proportion="-5.8846154">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="17" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -113,7 +147,6 @@
         <option value="$PROJECT_DIR$/../../bin/apache/apache2.4.9/bin/php.ini" />
         <option value="$PROJECT_DIR$/../../bin/php/php5.5.12/php.ini" />
         <option value="$PROJECT_DIR$/PHP/AdminHome.html" />
-        <option value="$PROJECT_DIR$/JS/Account.js" />
         <option value="$PROJECT_DIR$/html/AdminHome.html" />
         <option value="$PROJECT_DIR$/html/ClientHome.html" />
         <option value="$PROJECT_DIR$/index.html" />
@@ -125,7 +158,6 @@
         <option value="$PROJECT_DIR$/PHP/SignOut.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/PHP/Connection.php" />
-        <option value="$PROJECT_DIR$/PHP/AdminHome.php" />
         <option value="$PROJECT_DIR$/PHP/ChooseSurvey.php" />
         <option value="$PROJECT_DIR$/PHP/ClientHome.php" />
         <option value="$PROJECT_DIR$/PHP/CompleteSurvey.php" />
@@ -133,10 +165,13 @@
         <option value="$PROJECT_DIR$/PHP/Creation.php" />
         <option value="$PROJECT_DIR$/PHP/FilledSurvey.php" />
         <option value="$PROJECT_DIR$/PHP/Survey.php" />
-        <option value="$PROJECT_DIR$/PHP/DeleteAccount.php" />
         <option value="$PROJECT_DIR$/PHP/AddSurvey.php" />
         <option value="$PROJECT_DIR$/PHP/AnswerSurvey.php" />
+        <option value="$PROJECT_DIR$/PHP/DeleteAccount.php" />
+        <option value="$PROJECT_DIR$/PHP/AdminHome.php" />
         <option value="$PROJECT_DIR$/PHP/CreateAccount.php" />
+        <option value="$PROJECT_DIR$/JS/Account.js" />
+        <option value="$PROJECT_DIR$/PHP/ModifyAccount.php" />
         <option value="$PROJECT_DIR$/PHP/function.php" />
       </list>
     </option>
@@ -336,7 +371,13 @@
       <option name="project" value="LOCAL" />
       <updated>1446053548607</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="function.php">
+      <created>1446057699569</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1446057699569</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -379,7 +420,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Filling survey" />
-    <option name="LAST_COMMIT_MESSAGE" value="Filling survey" />
+    <MESSAGE value="function.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="function.php" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -388,21 +430,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PHP/old_ClientHome.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/AdminHome.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PHP/AddSurvey.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -694,14 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/Connection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PHP/FilledSurvey.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.2692308">
@@ -742,9 +761,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/Connection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11352254">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/CreateAccount.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8846154">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="17" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHP/AdminHome.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.038462">
+          <caret line="62" column="42" selection-start-line="62" selection-start-column="42" selection-end-line="62" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS/Account.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PHP/DeleteAccount.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22704507">
+        <state vertical-scroll-proportion="-5.230769">
           <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
           <folding>
             <element signature="e#6#87#0#PHP" expanded="true" />
@@ -752,39 +803,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/CreateAccount.php">
+    <entry file="file://$PROJECT_DIR$/PHP/ModifyAccount.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.730769">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PHP/AdminHome.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8846154">
-          <caret line="48" column="4" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="4" />
-          <folding />
+        <state vertical-scroll-proportion="-7.8461537">
+          <caret line="12" column="54" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
+          <folding>
+            <element signature="e#6#87#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PHP/function.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34056762">
-          <caret line="93" column="55" selection-start-line="93" selection-start-column="55" selection-end-line="93" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.85141903">
+          <caret line="231" column="16" selection-start-line="231" selection-start-column="16" selection-end-line="231" selection-end-column="16" />
           <folding>
             <element signature="e#6#87#0#PHP" expanded="true" />
-            <marker date="1446057503008" expanded="true" signature="380:447" placeholder="SELECT * FRO..Account..." />
-            <marker date="1446057503008" expanded="true" signature="1128:1149" placeholder="SELECT * FRO..Account..." />
-            <marker date="1446057503008" expanded="true" signature="6042:6090" placeholder="DELETE FROM ..." />
-            <marker date="1446057503008" expanded="true" signature="6048:6090" placeholder="INSERT INTO ..." />
-            <marker date="1446057503008" expanded="true" signature="6585:6663" placeholder="INSERT INTO ..." />
-            <marker date="1446057503008" expanded="true" signature="9807:9874" placeholder="INSERT INTO ..." />
-            <marker date="1446057503008" expanded="true" signature="10390:10457" placeholder="INSERT INTO ..." />
-            <marker date="1446057503008" expanded="true" signature="11964:12017" placeholder="SELECT Sonda..Sondage..." />
-            <marker date="1446057503008" expanded="true" signature="12130:12270" placeholder="INSERT INTO ..." />
-            <marker date="1446057503008" expanded="true" signature="12835:12886" placeholder="SELECT Sonda..Sondage..." />
-            <marker date="1446057503008" expanded="true" signature="13059:13150" placeholder="SELECT Quest..Question..." />
+            <marker date="1446065066108" expanded="true" signature="380:447" placeholder="SELECT * FRO..Account..." />
+            <marker date="1446065066108" expanded="true" signature="1129:1150" placeholder="SELECT * FRO..Account..." />
+            <marker date="1446065066108" expanded="true" signature="5769:5955" placeholder="CREATE TABLE..IF..." />
+            <marker date="1446065066108" expanded="true" signature="5979:6071" placeholder="INSERT INTO ..." />
+            <marker date="1446065066108" expanded="true" signature="6800:6834" placeholder="UPDATE Accou..." />
+            <marker date="1446065066108" expanded="true" signature="6800:6861" placeholder="UPDATE Accou..." />
+            <marker date="1446065066108" expanded="true" signature="6800:6868" placeholder="UPDATE Accou..." />
+            <marker date="1446065066108" expanded="true" signature="6800:6874" placeholder="UPDATE Accou..." />
+            <marker date="1446065066108" expanded="true" signature="6800:6899" placeholder="UPDATE Accou..." />
+            <marker date="1446065066108" expanded="true" signature="7339:7387" placeholder="DELETE FROM ..." />
+            <marker date="1446065066108" expanded="true" signature="7345:7387" placeholder="INSERT INTO ..." />
+            <marker date="1446065066108" expanded="true" signature="7912:7990" placeholder="INSERT INTO ..." />
+            <marker date="1446065066108" expanded="true" signature="11135:11202" placeholder="INSERT INTO ..." />
+            <marker date="1446065066108" expanded="true" signature="11719:11786" placeholder="INSERT INTO ..." />
+            <marker date="1446065066108" expanded="true" signature="13304:13357" placeholder="SELECT Sonda..Sondage..." />
+            <marker date="1446065066108" expanded="true" signature="13470:13610" placeholder="INSERT INTO ..." />
+            <marker date="1446065066108" expanded="true" signature="14180:14231" placeholder="SELECT Sonda..Sondage..." />
+            <marker date="1446065066108" expanded="true" signature="14404:14495" placeholder="SELECT Quest..Question..." />
           </folding>
         </state>
       </provider>

@@ -10,14 +10,16 @@ function Pencil(DivNum)
     ele.style.display = "block";
 }
 
-function Trash()
+function Submit(index, stat)
 {
+    var ele = document.getElementById("form" + index);
+    if(stat == "Mod")
+        ele.setAttribute("action", "ModifyAccount.php");
 
-}
+    else
+        ele.setAttribute("action", "DeleteAccount.php");
 
-function Check()
-{
-
+    ele.submit();
 }
 
 function Cross(DivNum)

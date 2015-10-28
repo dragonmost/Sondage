@@ -46,8 +46,8 @@ if(!isset($_SESSION))
 
 
 <div class="container">
-    <form class="form-Account-Management" action="CreateAccount.php" method="post">
-        <div class="panel-body">
+
+        <div class="panel-body form-Account-Management">
 
             <h2 class="form-signin-heading">Accounts</h2>
 
@@ -55,6 +55,7 @@ if(!isset($_SESSION))
             <ul id="lstAccount">
 
             </ul>
+            <form action="CreateAccount.php" method="post">
             <h3 class="form-signin-heading">Add an accounts</h3>
             <input type="email" id="inputEmail" class="" placeholder="Email address" required autofocus name="email">
             <input type="password" id="inputPassword" class="" placeholder="Password" required name="pw">
@@ -63,9 +64,9 @@ if(!isset($_SESSION))
             <a class="Account-Management" href="#" type="submit"><!--<span class="glyphicon glyphicon-floppy-disk"
                                                          aria-hidden="true"></span>-->
             <input type="image" class="glyphicon glyphicon-floppy-disk"  aria-hidden="true" /></a>
-
+            </form>
         </div>
-    </form>
+
 </div>
 </body>
 </html>

@@ -7,6 +7,6 @@
  */
 
 include"function.php";
-DeleteAccount($_POST);
+DeleteAccount($_POST["input"]);
 
 ?>
