@@ -35,7 +35,11 @@ if(!isset($_SESSION))
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+<<<<<<< HEAD
                 <a class="navbar-brand" href="ClientHome.php">Survey Baker</a>
+=======
+                <a class="navbar-brand" href="#">Survey Baker</a>
+>>>>>>> origin/master
             </div>
             <div id="navbar" class="navbar-collapse collapse navbar-right">
                 <ul class="nav navbar-nav">
@@ -44,9 +48,15 @@ if(!isset($_SESSION))
                            aria-haspopup="true" aria-expanded="false">Survey<span
                                 class="caret"></span></a>
                         <ul class="dropdown-menu">
+<<<<<<< HEAD
                             <li><a href="ClientHome.php">Create</a></li>
                             <li><a href="EnterSurvey.php">Fill Survey</a></li>
                             <li><a href="DisplaySurvey.php">Display</a></li>
+=======
+                            <li><a href="#">Create</a></li>
+                            <li><a href="#">Complete</a></li>
+                            <li><a href="#">Display</a></li>
+>>>>>>> origin/master
                         </ul>
                     </li>
                     <li><a href="SignOut.php">Sign out</a></li>
@@ -57,14 +67,27 @@ if(!isset($_SESSION))
 </div>
 
 <div class="container-fluid" style="min-height: 100%;">
+<<<<<<< HEAD
     <form class="SondageAddQuestion" id="form" action="CompleteSurvey.php" method="post">
         <div>
             <div class="panel-body">
                 <h2 class="WhiteHeader" id="SurveyTitle"></h2>
+=======
+    <form class="SondageAddQuestion" action="AddSurvey.php" method="post">
+        <div>
+            <div class="panel-body">
+                <form id="form" class="SondageCreateHome" action="CreateSurvey.php" method="post">
+                <h2 id="Title" class="WhiteHeader"></h2>
+
+>>>>>>> origin/master
                 <ul id="Question">
 
                 </ul>
                 <button class="btn btn-lg btn-primary btn-block" type="submit" id="button"></button>
+<<<<<<< HEAD
+=======
+                </form>
+>>>>>>> origin/master
             </div>
         </div>
     </form>

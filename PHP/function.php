@@ -31,12 +31,21 @@ function Connect($email, $pw)
         $val = $req->fetchAll(PDO::FETCH_NUM);
         $pdo = null;
 
-        $_SESSION["email"] = $email;
-
-        if ($val[0][2] == 1)
+        if ($val == null)
+        {
+            header("location: ../index.php");
+        }
+        else if ($val[0][2] == 1)
+        {
+            $_SESSION["email"] = $email;
             AdminHome();
+        }
         else if ($val[0][2] == 0)
+        {
+            $_SESSION["email"] = $email;
             ClientHome();
+        }
+
 
     } catch (PDOException $ex) {
         echo "Connection failed: " . $ex->getMessage();
@@ -157,7 +166,11 @@ function appendAccount($doc, $name, $isAdmin, $i)
     //append au doc
     $divNorm->appendChild($lblNorm);
     if($isAdmin == 0)
+<<<<<<< HEAD
         $divNorm->appendChild($pencil);
+=======
+    $divNorm->appendChild($pencil);
+>>>>>>> origin/master
     $divNorm->appendChild($trash);
     $form->appendChild($divNorm);
     if ($isAdmin == 0) {
@@ -169,7 +182,11 @@ function appendAccount($doc, $name, $isAdmin, $i)
         $divMod->appendChild($check);
         $divMod->appendChild($cross);
         $form->appendChild($divMod);
+<<<<<<< HEAD
     }
+=======
+        }
+>>>>>>> origin/master
     $liste->appendChild($form);
     $ele->appendChild($liste);
 }
@@ -415,7 +432,7 @@ function AddSurvey($data)
     $doc = new DOMDocument();
     $doc->loadHTMLFile("Survey.php");
     $Questions = $doc->getElementById('Question');
-    $title = $doc->getElementById("SurveyTitle");
+    $title = $doc->getElementById("Title");
     $title->appendChild($doc->createTextNode("Survey Created"));
     $input = $doc->createElement("input");
     $input->setAttribute("value", $pw);
