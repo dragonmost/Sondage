@@ -35,7 +35,7 @@ if(!isset($_SESSION))
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Survey Baker</a>
+                <a class="navbar-brand" href="ClientHome.php">Survey Baker</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse navbar-right">
                 <ul class="nav navbar-nav">
@@ -44,9 +44,9 @@ if(!isset($_SESSION))
                            aria-haspopup="true" aria-expanded="false">Survey<span
                                 class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Create</a></li>
-                            <li><a href="#">Complete</a></li>
-                            <li><a href="#">Display</a></li>
+                            <li><a href="ClientHome.php">Create</a></li>
+                            <li><a href="EnterSurvey.php">Fill Survey</a></li>
+                            <li><a href="DisplaySurvey.php">Display</a></li>
                         </ul>
                     </li>
                     <li><a href="SignOut.php">Sign out</a></li>

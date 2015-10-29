@@ -35,7 +35,6 @@ if(!isset($_SESSION))
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="ClientHome.php">Survey Baker</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse navbar-right">
                 <ul class="nav navbar-nav">
@@ -44,9 +43,7 @@ if(!isset($_SESSION))
                            aria-haspopup="true" aria-expanded="false">Survey<span
                                 class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="ClientHome.php">Create</a></li>
                             <li><a href="EnterSurvey.php">Fill Survey</a></li>
-                            <li><a href="DisplaySurvey.php">Display</a></li>
                         </ul>
                     </li>
                     <li><a href="SignOut.php">Sign out</a></li>
@@ -57,14 +54,15 @@ if(!isset($_SESSION))
 </div>
 
 <div class="container-fluid" style="min-height: 100%;">
-    <form class="SondageCreateHome" action="CreateSurvey.php" method="post">
+    <form class="SondageAddQuestion" id="form" action="CompleteSurvey.php" method="post">
         <div>
             <div class="panel-body">
-                <h2 class="WhiteHeader">Survey Creation</h2>
-                <input type="number" class="BlackText" min="1" placeholder="Quantity" name="nbQ">&nbsp;
-                <button type="button submit" class="btn btn-sm btn-primary">Primary</button>
-            </div>
+                <h2 class="WhiteHeader" id="SurveyTitle"></h2>
+                <ul id="Question">
 
+                </ul>
+                <button class="btn btn-lg btn-primary btn-block" type="submit" id="button"></button>
+            </div>
         </div>
     </form>
 </div>

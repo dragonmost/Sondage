@@ -96,13 +96,15 @@ function appendAccount($doc, $name, $isAdmin, $i)
     $lblNorm = $doc->createElement("label");
     $lblNorm->appendChild($doc->createTextNode($name));
     $lblNorm->setAttribute("name", $name);
-    $pencil = $doc->createElement("a");
-    $pencilSpan = $doc->createElement("span");
-    $pencilSpan->setAttribute("class", "glyphicon glyphicon-pencil");
-    $pencilSpan->setAttribute("aria-hidden", "true");
-    $pencil->appendChild($pencilSpan);
-    $pencil->setAttribute("class", "Account-Management");
-    $pencil->setAttribute("href", "javascript:Pencil(" . "'" . $i . "')");
+    if($isAdmin == 0) {
+        $pencil = $doc->createElement("a");
+        $pencilSpan = $doc->createElement("span");
+        $pencilSpan->setAttribute("class", "glyphicon glyphicon-pencil");
+        $pencilSpan->setAttribute("aria-hidden", "true");
+        $pencil->appendChild($pencilSpan);
+        $pencil->setAttribute("class", "Account-Management");
+        $pencil->setAttribute("href", "javascript:Pencil(" . "'" . $i . "')");
+    }
     $trash = $doc->createElement("a");
     $trashSpan = $doc->createElement("span");
     $trashSpan->setAttribute("class", "glyphicon glyphicon-trash");
@@ -113,51 +115,61 @@ function appendAccount($doc, $name, $isAdmin, $i)
     $trash->setAttribute("name", "Delete");
 
     //mon div de modifier
-    $oldName = $doc->createElement("input");
-    $oldName->setAttribute("type", "hidden");
-    $oldName->setAttribute("name", "oldName");
-    $oldName->setAttribute("value", $name);
-    $input = $doc->createElement("input");
-    $input->setAttribute("type", "email");
-    $input->setAttribute("placeholder", $name);
-    $input->setAttribute("name", "input");
-    $input->setAttribute("value", $name);
-    $lblMod = $doc->createElement("label");
-    $lblMod->appendChild($doc->createTextNode("isAdmin"));
-    $checkbox = $doc->createElement("input");
-    $checkbox->setAttribute("type", "checkbox");
-    $checkbox->setAttribute("name", "check");
-    if ($isAdmin == 1)
-        $checkbox->setAttribute("checked", "");
-    $check = $doc->createElement("a");
-    $checkSpan = $doc->createElement("span");
-    $checkSpan->setAttribute("class", "glyphicon glyphicon-ok");
-    $checkSpan->setAttribute("aria-hidden", "true");
-    $check->appendChild($checkSpan);
-    $check->setAttribute("class", "Account-Management");
-    $check->setAttribute("href", "javascript:Submit(" . $i . ",'Mod')");
-    $check->setAttribute("name", "Modify");
-    $cross = $doc->createElement("a");
-    $crossSpan = $doc->createElement("span");
-    $crossSpan->setAttribute("class", "glyphicon glyphicon-remove");
-    $crossSpan->setAttribute("aria-hidden", "true");
-    $cross->appendChild($crossSpan);
-    $cross->setAttribute("class", "Account-Management");
-    $cross->setAttribute("href", "javascript:Cross(" . "'" . $i . "')");
+    if ($isAdmin == 0) {
+        $oldName = $doc->createElement("input");
+        $oldName->setAttribute("type", "hidden");
+        $oldName->setAttribute("name", "oldName");
+        $oldName->setAttribute("value", $name);
+        $input = $doc->createElement("input");
+        $input->setAttribute("type", "email");
+        $input->setAttribute("placeholder", $name);
+        $input->setAttribute("name", "input");
+        $input->setAttribute("value", $name);
+        $inputPW = $doc->createElement("input");
+        $inputPW->setAttribute("type", "password");
+        $inputPW->setAttribute("placeholder", "new Password");
+        $inputPW->setAttribute("name", "newPW");
 
+        //$lblMod = $doc->createElement("label");
+        //$lblMod->appendChild($doc->createTextNode("isAdmin"));
+        //$checkbox = $doc->createElement("input");
+        //$checkbox->setAttribute("type", "checkbox");
+        //$checkbox->setAttribute("name", "check");
+
+        //$checkbox->setAttribute("checked", "");
+        $check = $doc->createElement("a");
+        $checkSpan = $doc->createElement("span");
+        $checkSpan->setAttribute("class", "glyphicon glyphicon-ok");
+        $checkSpan->setAttribute("aria-hidden", "true");
+        $check->appendChild($checkSpan);
+        $check->setAttribute("class", "Account-Management");
+        $check->setAttribute("href", "javascript:Submit(" . $i . ",'Mod')");
+        $check->setAttribute("name", "Modify");
+        $cross = $doc->createElement("a");
+        $crossSpan = $doc->createElement("span");
+        $crossSpan->setAttribute("class", "glyphicon glyphicon-remove");
+        $crossSpan->setAttribute("aria-hidden", "true");
+        $cross->appendChild($crossSpan);
+        $cross->setAttribute("class", "Account-Management");
+        $cross->setAttribute("href", "javascript:Cross(" . "'" . $i . "')");
+    }
 
     //append au doc
     $divNorm->appendChild($lblNorm);
-    $divNorm->appendChild($pencil);
+    if($isAdmin == 0)
+        $divNorm->appendChild($pencil);
     $divNorm->appendChild($trash);
-    $divMod->appendChild($oldName);
-    $divMod->appendChild($input);
-    $divMod->appendChild($lblMod);
-    $divMod->appendChild($checkbox);
-    $divMod->appendChild($check);
-    $divMod->appendChild($cross);
     $form->appendChild($divNorm);
-    $form->appendChild($divMod);
+    if ($isAdmin == 0) {
+        $divMod->appendChild($oldName);
+        $divMod->appendChild($input);
+        $divMod->appendChild($inputPW);
+        //$divMod->appendChild($lblMod);
+        //$divMod->appendChild($checkbox);
+        $divMod->appendChild($check);
+        $divMod->appendChild($cross);
+        $form->appendChild($divMod);
+    }
     $liste->appendChild($form);
     $ele->appendChild($liste);
 }
@@ -211,7 +223,7 @@ function CreateAccount($email, $pw, $isAdmin)
     $pdo = null;
 }
 
-function ModifyAccount($newEmail, $oldEmail, $isAdmin)
+function ModifyAccount($newEmail, $oldEmail, $newPW)
 {
     try {
         $pdo = new PDO('sqlite:bd.Account');
@@ -219,11 +231,20 @@ function ModifyAccount($newEmail, $oldEmail, $isAdmin)
         echo 'Connection failed: ' . $e->getMessage();
     }
 
-    $update = "UPDATE Account SET AccountEmail= :newEmail, AccountisAdmin= :isAdmin WHERE AccountEmail = :oldEmail";
-    $req = $pdo->prepare($update);
-    $req->bindValue(":newEmail", $newEmail);
-    $req->bindValue(":isAdmin", $isAdmin);
-    $req->bindValue(":oldEmail", $oldEmail);
+    if($newPW != "") {
+        $update = "UPDATE Account SET AccountEmail= :newEmail, AccountPW= :PW WHERE AccountEmail = :oldEmail";
+        $req = $pdo->prepare($update);
+        $req->bindValue(":newEmail", $newEmail);
+        $req->bindValue(":PW", md5($newPW));
+        $req->bindValue(":oldEmail", $oldEmail);
+    }
+    else
+    {
+        $update = "UPDATE Account SET AccountEmail= :newEmail WHERE AccountEmail = :oldEmail";
+        $req = $pdo->prepare($update);
+        $req->bindValue(":newEmail", $newEmail);
+        $req->bindValue(":oldEmail", $oldEmail);
+    }
 
     $req->execute();
 
@@ -280,8 +301,8 @@ function FilledSurvey($data)
     $title->appendChild($doc->createTextNode("Thank you"));
     $button = $doc->getElementById("button");
     $button->appendChild($doc->createTextNode("Home"));
-    $button->setAttribute("type", "");
-    $button->setAttribute("href", "ClientHome.php");
+    $button->setAttribute("type", "button");
+    $button->setAttribute("onclick", "location.href='ClientHome.php'");
     $form = $doc->getElementById("form");
     $form->setAttribute("action", "");
     echo $doc->saveHTML();
@@ -544,6 +565,54 @@ function AppendQuestion($doc, $i, $question, $type)
 
         $liste->appendChild($div);
         $ele->appendChild($liste);
+    }
+}
+
+function Display($email)
+{
+    try {
+        $pdo = new PDO('sqlite:bd.Account');
+    } catch (PDOException $e) {
+        echo 'Connection failed: ' . $e->getMessage();
+    }
+
+    try {
+        $sel = "SELECT PW FROM Sondage WHERE Account = :Email";
+        $req = $pdo->prepare($sel);
+        $req->bindValue(':Email', $email);
+        $req->execute();
+
+        $val = $req->fetchAll(PDO::FETCH_NUM);
+
+        print_r($val[1][0]);
+
+        $doc = new DOMDocument();
+        $doc->loadHTMLFile("Survey.php");
+
+        for($i = 0; $i < count($val); $i++)
+        {
+            $ele = $doc->getElementById('Question');
+            $liste = $doc->createElement("li");
+
+            $input = $doc->createElement("input");
+            $input->setAttribute("value", $val[$i][0]);
+            $input->setAttribute("readonly", "");
+            $input->setAttribute("class", "BlackText");
+
+            $liste->appendChild($input);
+            $ele->appendChild($liste);
+        }
+
+        $form = $doc->getElementById("form");
+        $form->setAttribute("action", "");
+        $button = $doc->getElementById("button");
+        $button->appendChild($doc->createTextNode("Home"));
+        $button->setAttribute("type", "button");
+        $button->setAttribute("onclick", "location.href='ClientHome.php'");
+        echo $doc->saveHTML();
+
+    } catch (PDOException $ex) {
+        echo "Connection failed: " . $ex->getMessage();
     }
 }
 

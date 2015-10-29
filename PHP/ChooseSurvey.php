@@ -4,6 +4,7 @@ if(!isset($_SESSION))
     header("location: ../index.php");
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,14 +58,13 @@ if(!isset($_SESSION))
 </div>
 
 <div class="container-fluid" style="min-height: 100%;">
-    <form class="SondageCreateHome" action="CreateSurvey.php" method="post">
+    <form class="SondageAddQuestion" action="CompleteSurvey.php" method="post">
         <div>
             <div class="panel-body">
                 <h2 class="WhiteHeader">Survey Creation</h2>
-                <input type="number" class="BlackText" min="1" placeholder="Quantity" name="nbQ">&nbsp;
-                <button type="button submit" class="btn btn-sm btn-primary">Primary</button>
+                <input placeholder="Survey Password">
+                <button class="btn btn-lg btn-primary btn-block" type="submit" id="button"></button>
             </div>
-
         </div>
     </form>
 </div>

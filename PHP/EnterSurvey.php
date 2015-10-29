@@ -57,14 +57,13 @@ if(!isset($_SESSION))
 </div>
 
 <div class="container-fluid" style="min-height: 100%;">
-    <form class="SondageCreateHome" action="CreateSurvey.php" method="post">
+    <form class="SondageAddQuestion" id="form" action="AnswerSurvey.php" method="post">
         <div>
             <div class="panel-body">
-                <h2 class="WhiteHeader">Survey Creation</h2>
-                <input type="number" class="BlackText" min="1" placeholder="Quantity" name="nbQ">&nbsp;
-                <button type="button submit" class="btn btn-sm btn-primary">Primary</button>
+                <h2 class="WhiteHeader" id="SurveyTitle">Survey</h2>
+                <input class="BlackText" name="pw" required><p></p>
+                <button class="btn btn-lg btn-primary btn-block" type="submit" id="button">Enter</button>
             </div>
-
         </div>
     </form>
 </div>
