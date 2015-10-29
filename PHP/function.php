@@ -166,11 +166,11 @@ function appendAccount($doc, $name, $isAdmin, $i)
     //append au doc
     $divNorm->appendChild($lblNorm);
     if($isAdmin == 0)
-<<<<<<< HEAD
+
         $divNorm->appendChild($pencil);
-=======
+
     $divNorm->appendChild($pencil);
->>>>>>> origin/master
+
     $divNorm->appendChild($trash);
     $form->appendChild($divNorm);
     if ($isAdmin == 0) {
@@ -182,11 +182,11 @@ function appendAccount($doc, $name, $isAdmin, $i)
         $divMod->appendChild($check);
         $divMod->appendChild($cross);
         $form->appendChild($divMod);
-<<<<<<< HEAD
+
     }
-=======
-        }
->>>>>>> origin/master
+
+
+
     $liste->appendChild($form);
     $ele->appendChild($liste);
 }
@@ -575,6 +575,8 @@ function AppendQuestion($doc, $i, $question, $type)
         $ele->appendChild($liste);
     } else {
         $text = $doc->createElement("textarea");
+        $text->setAttribute("Cols", "80");
+        $text->setAttribute("Rows", "5");
         $text->setAttribute("class", "Developpement");
         $text->setAttribute("name", "r" . $i);
         $text->setAttribute("required", "");
