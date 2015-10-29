@@ -9,10 +9,10 @@
 include "function.php";
 print_r($_POST);
 
-if (isset($_POST["check"]))
-    ModifyAccount($_POST["input"], $_POST["oldName"], 1);
-else
-    ModifyAccount($_POST["input"], $_POST["oldName"], 0);
+//if (isset($_POST["check"]))
+    ModifyAccount($_POST["input"], $_POST["oldName"], $_POST["newPW"]);
+//else
+    //ModifyAccount($_POST["input"], $_POST["oldName"], 0);
 
 
 ?>
